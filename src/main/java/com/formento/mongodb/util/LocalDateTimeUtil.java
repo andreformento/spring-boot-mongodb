@@ -28,8 +28,12 @@ public class LocalDateTimeUtil {
     }
 
     public static LocalDateTime fromDate(Date date) {
+        return fromDate(date, ZoneId.systemDefault());
+    }
+
+    public static LocalDateTime fromDate(Date date, ZoneId zoneId) {
         Instant instant = Instant.ofEpochMilli(date.getTime());
-        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(instant, zoneId);
     }
 
     public static LocalDateTime fromLong(Long longDate) {
